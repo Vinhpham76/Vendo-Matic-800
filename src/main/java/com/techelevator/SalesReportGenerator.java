@@ -51,9 +51,9 @@ public class SalesReportGenerator {
         if (inventory == null) {
             throw new IllegalStateException("Inventory is not set");
         }
-        for (VendingIems items : inventory.values()) {
+        for (VendingItems items : inventory.values()) {
             if (items.getName().equals(productName)) {
-                    return items.getPrice();
+                    return BigDecimal.valueOf(items.getPrice());
 
             }
         }
