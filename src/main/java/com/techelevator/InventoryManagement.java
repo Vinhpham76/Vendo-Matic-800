@@ -54,7 +54,8 @@ public class InventoryManagement {
             String itemName = entry.getKey();
             double price = entry.getValue();
             int quantity = itemQuantities.getOrDefault(itemName, 0);
-            System.out.println(itemName + ": $" + price + " (" + quantity + " left)");
+            String location = itemLocations.getOrDefault(itemName, "");
+            System.out.println("[" + location + "]" + itemName + ": $" + price + " (" + quantity + " left)");
         }
     }
 
@@ -100,17 +101,17 @@ public class InventoryManagement {
         return itemQuantities.getOrDefault(itemName, 0);
     }
 
-    /te// For testing purposes
-//    public static void main(String[] args) {
-//        InventoryManagement vendingMachine = new InventoryManagement();
+    // For testing purposes
+    public static void main(String[] args) {
+        InventoryManagement vendingMachine = new InventoryManagement();
 //        vendingMachine.displayInventory();
 //        vendingMachine.addQuantity("Potato Crisps", 5);
 //        vendingMachine.addQuantity("U-Chews", 10);
 //        vendingMachine.addQuantity("Dr. Salt", 10);
-//        vendingMachine.displayInventory();
+            vendingMachine.displayInventory();
 //        System.out.println(vendingMachine.getItemLocation("Cola"));
 //        System.out.println(vendingMachine.getItemQuantity("Cola"));
-//    }
+    }
 }
 
 
