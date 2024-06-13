@@ -6,15 +6,36 @@ import java.util.Map;
 
 public class VendingMachine {
     private String inputFile;
-    private static double balance;
+    private static double currentBalance;
     private Map<String, VendingItems> inventory = new HashMap<>();
 
     public VendingMachine(String inputFile)  {
         this.inputFile = inputFile;
 
-        balance = 0.0;
+        currentBalance = 0.0;
     }
 
+    public void selectProduct(String slotID) {
+        VendingItems product = inventory.get(slotID);
+        if (product == null) {
+            System.out.println("Invalid product ID.");
+            return;
+        }
+        if (product.isSoldOut()) {
+            System.out.println("Product is SOLD OUT.");
+            return;
+        }
+        if (currentBalance < product.getPrice()) {
+            System.out.println("Insufficient funds.");
+            return;
+        }
+
+
+        currentBalance-= product.getPrice();
+        System.out.printf("Dispensed: %s ($%.2f). Remaining balance: $%.2f\n", product.getName(), product.getPrice(), balance);
+        System.out.println(product.dispenseMessage());
+
+    }
 
 
 
@@ -24,8 +45,5 @@ public class VendingMachine {
         }
     }
 
-    // Getters
-    public static double getBalance() {
-        return balance;
-    }
+
 }

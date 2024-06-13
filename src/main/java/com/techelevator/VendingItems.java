@@ -41,4 +41,14 @@ public class VendingItems {
         return quantity == 0;
     }
 
+    public String dispenseMessage() {
+        switch (type) {
+            case "Chip": return "Crunch Crunch, Yum!";
+            case "Candy": return "Munch Munch, Yum!";
+            case "Drink": return "Glug Glug, Yum!";
+            case "Gum": return "Chew Chew, Yum!";
+            default: return "";
+        }
+    }
+
 }
