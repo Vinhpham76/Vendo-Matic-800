@@ -66,11 +66,19 @@ public class VendingMachine {
         System.out.println(getDispenseMessage(item.getType()));
     }
 
+
+
+        currentBalance-= product.getPrice();
+        System.out.printf("Dispensed: %s ($%.2f). Remaining balance: $%.2f\n", product.getName(), product.getPrice(), currentBalance);
+        System.out.println(product.dispenseMessage());
+
+
     public void finishTransaction() {
         BigDecimal balanceBefore = balance;
         giveChange(balance);
         TransactionLogger.logTransaction("GIVE CHANGE", balanceBefore, BigDecimal.ZERO);
         balance = BigDecimal.ZERO;
+
     }
 
     private void giveChange(BigDecimal amount) {
