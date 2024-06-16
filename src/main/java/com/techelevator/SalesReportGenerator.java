@@ -38,7 +38,7 @@ public class SalesReportGenerator {
 
     }
 
-    private static BigDecimal calculateTotalSales (Map<String, Integer> salesData) {
+    public static BigDecimal calculateTotalSales (Map<String, Integer> salesData) {
         BigDecimal totalSales = BigDecimal.ZERO;
         for (Map.Entry<String, Integer> entry : salesData.entrySet()){
             BigDecimal price = getPrice(entry.getKey());

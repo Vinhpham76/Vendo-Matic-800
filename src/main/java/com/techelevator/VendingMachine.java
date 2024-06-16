@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -67,12 +66,6 @@ public class VendingMachine {
     }
 
 
-
-        currentBalance-= product.getPrice();
-        System.out.printf("Dispensed: %s ($%.2f). Remaining balance: $%.2f\n", product.getName(), product.getPrice(), currentBalance);
-        System.out.println(product.dispenseMessage());
-
-
     public void finishTransaction() {
         BigDecimal balanceBefore = balance;
         giveChange(balance);
@@ -81,7 +74,7 @@ public class VendingMachine {
 
     }
 
-    private void giveChange(BigDecimal amount) {
+    public void giveChange(BigDecimal amount) {
         int quarters = amount.divide(new BigDecimal("0.25")).intValue();
         amount = amount.remainder(new BigDecimal("0.25"));
         int dimes = amount.divide(new BigDecimal("0.10")).intValue();
@@ -91,7 +84,7 @@ public class VendingMachine {
         System.out.println("Change given: " + quarters + " quarters, " + dimes + " dimes, " + nickels + " nickels.");
     }
 
-    private String getDispenseMessage(String type) {
+    public String getDispenseMessage(String type) {
         switch (type.toLowerCase()) {
             case "chip": return "Crunch Crunch, Yum!";
             case "candy": return "Munch Munch, Yum!";
@@ -105,16 +98,4 @@ public class VendingMachine {
     public BigDecimal getBalance() { return balance; }
     public Map<String, Integer> getSalesData() { return salesData; }
 
-
-
-//    public void displayItems() {
-//        for (VendingItems item : inventory.values()) {
-//            System.out.println(item.getSlotID() + ". " + item.getName() + ", $" + item.getPrice() + ", Qty:" + item.getQuantity());
-//        }
-//    }
-
-    // Getters
-//    public static BigDecimal getBalance() {
-//        return balance;
-//    }
 }

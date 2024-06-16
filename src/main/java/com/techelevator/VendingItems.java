@@ -44,14 +44,4 @@ public class VendingItems {
     public void reduceQuantity() {
         if (quantity > 0) quantity--;
     }
-
-    public void restock() {
-        quantity = MAX_QUANTITY;
-    }
-
-    // isSoldOut method.
-//    public boolean isSoldOut() {
-//        return quantity == 0;
-//    }
-
 }
