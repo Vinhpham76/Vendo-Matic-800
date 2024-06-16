@@ -12,6 +12,7 @@ public class SalesReportGenerator {
 
     private static Map<String,VendingItems> inventory;
 
+
     public static void setInventory(Map<String, VendingItems> inventory) {
         SalesReportGenerator.inventory = inventory;
     }
@@ -53,7 +54,7 @@ public class SalesReportGenerator {
         }
         for (VendingItems items : inventory.values()) {
             if (items.getName().equals(productName)) {
-                    return BigDecimal.valueOf(items.getPrice());
+                    return items.getPrice();
 
             }
         }
