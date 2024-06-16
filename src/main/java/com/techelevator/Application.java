@@ -18,6 +18,7 @@ public class Application {
 
 		menu.displayMainMenu();
 	}
+	public static void displayPurchaseMenu(){
 
 //		try {
 //			Scanner scanner = new Scanner(System.in);
