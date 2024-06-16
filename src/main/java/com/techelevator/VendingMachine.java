@@ -32,7 +32,7 @@ public class VendingMachine {
 
 
         currentBalance-= product.getPrice();
-        System.out.printf("Dispensed: %s ($%.2f). Remaining balance: $%.2f\n", product.getName(), product.getPrice(), balance);
+        System.out.printf("Dispensed: %s ($%.2f). Remaining balance: $%.2f\n", product.getName(), product.getPrice(), currentBalance);
         System.out.println(product.dispenseMessage());
 
     }
