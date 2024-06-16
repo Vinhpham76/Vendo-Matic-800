@@ -1,17 +1,18 @@
 package com.techelevator;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
 public class VendingItems {
     private String slotID;
     private String name;
-    private double price;
+    private BigDecimal price;
     private String type;
     private int quantity;
     private final int MAX_QUANTITY = 5;
 
-    public VendingItems(String slotID, String name, double price, String type) {
+    public VendingItems(String slotID, String name, BigDecimal price, String type) {
         this.slotID = slotID;
         this.name = name;
         this.price = price;
@@ -28,27 +29,29 @@ public class VendingItems {
         return name;
     }
 
-    public double getPrice() {
+    public BigDecimal getPrice() {
         return price;
+    }
+
+    public String getType() {
+        return type;
     }
 
     public int getQuantity() {
         return quantity;
     }
 
-    // isSoldOut method.
-    public boolean isSoldOut() {
-        return quantity == 0;
+    public void reduceQuantity() {
+        if (quantity > 0) quantity--;
     }
 
-    public String dispenseMessage() {
-        switch (type) {
-            case "Chip": return "Crunch Crunch, Yum!";
-            case "Candy": return "Munch Munch, Yum!";
-            case "Drink": return "Glug Glug, Yum!";
-            case "Gum": return "Chew Chew, Yum!";
-            default: return "";
-        }
+    public void restock() {
+        quantity = MAX_QUANTITY;
     }
+
+    // isSoldOut method.
+//    public boolean isSoldOut() {
+//        return quantity == 0;
+//    }
 
 }
